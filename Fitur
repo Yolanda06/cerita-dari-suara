@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerita dari Suara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 2em;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .output {
+            background: #fff8dc;
+            padding: 1em;
+            margin-top: 2em;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cerita dari Suara</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="audio">Unggah file audio (.mp3, .wav):</label>
+        <input type="file" name="audio" accept="audio/*" required>
+        <button type="submit">Transkripsi</button>
+    </form>
+
+    {% if transcription %}
+    <div class="output">
+        <h3>Hasil Transkripsi:</h3>
+        <p>{{ transcription }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
